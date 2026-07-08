@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="404 Page Not Found - Stackly Electrical Services" />
+  <title>404 Not Found | Stackly Electrical Services</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --primary:#f59e0b;
+      --primary-dark:#d97706;
+      --primary-light:#fbbf24;
+      --secondary:#111827;
+      --secondary-2:#0f172a;
+      --secondary-3:#1e293b;
+      --white:#ffffff;
+      --text:#cbd5e1;
+      --text-dark:#94a3b8;
+      --border:rgba(255,255,255,0.08);
+      --glass:rgba(255,255,255,0.06);
+      --glass-2:rgba(255,255,255,0.1);
+      --shadow:0 20px 60px rgba(0,0,0,0.35);
+      --radius:22px;
+      --container:1280px;
+      --topbar-h:46px;
+      --navbar-h:88px;
+      --transition:all .35s ease;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(245,158,11,0.15), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(251,191,36,0.12), transparent 24%),
+        radial-gradient(circle at 80% 80%, rgba(245,158,11,0.08), transparent 30%),
+        linear-gradient(135deg, #07111f 0%, #0b1322 40%, #101826 100%);
+      color:var(--white);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body.menu-open{
+      overflow:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    ul{
+      list-style:none;
+    }
+
+    button,
+    input{
+      font:inherit;
+    }
+
+    .container{
+      width:min(100% - 32px, var(--container));
+      margin-inline:auto;
+    }
+
+    /* ========== TOPBAR ========== */
+    .topbar{
+      position:relative;
+      z-index:1000;
+      background:rgba(255,255,255,0.04);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+    }
+
+    .topbar-inner{
+      min-height:var(--topbar-h);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      padding:10px 0;
+    }
+
+    .topbar-left,
+    .topbar-right{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .topbar-item{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:#dbe4f0;
+      font-size:.92rem;
+      opacity:.95;
+    }
+
+    .topbar-item svg{
+      color:var(--primary);
+      flex-shrink:0;
+    }
+
+    .topbar-social{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:var(--transition);
+    }
+
+    .topbar-social:hover{
+      transform:translateY(-2px);
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      box-shadow:0 10px 24px rgba(245,158,11,0.35);
+    }
+
+    /* ========== NAVBAR ========== */
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(7,17,31,0.72);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner{
+      min-height:var(--navbar-h);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .nav-logo{
+      display:flex;
+      align-items:center;
+      flex-shrink:0;
+    }
+
+    .logo-img{
+      width:165px;
+      height:auto;
+      object-fit:contain;
+      filter:drop-shadow(0 10px 24px rgba(245,158,11,0.15));
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-left:auto;
+    }
+
+    .nav-link{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 16px;
+      color:#e5edf7;
+      font-weight:500;
+      border-radius:999px;
+      transition:var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active{
+      color:#fff;
+      background:rgba(255,255,255,0.06);
+    }
+
+    .nav-link.active::after,
+    .nav-link:hover::after{
+      content:"";
+      position:absolute;
+      left:18px;
+      right:18px;
+      bottom:8px;
+      height:2px;
+      border-radius:99px;
+      background:linear-gradient(90deg,var(--primary),var(--primary-light));
+    }
+
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink:0;
+    }
+
+    .btn-call,
+    .btn-quote,
+    .btn-primary,
+    .btn-outline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:none;
+      cursor:pointer;
+      transition:var(--transition);
+      font-weight:700;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    .btn-call{
+      padding:12px 18px;
+      color:#fff;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .btn-call:hover{
+      transform:translateY(-2px);
+      background:rgba(255,255,255,0.12);
+    }
+
+    .btn-quote,
+    .btn-primary{
+      padding:14px 22px;
+      color:#101826;
+      background:linear-gradient(135deg,var(--primary-light),var(--primary),var(--primary-dark));
+      box-shadow:0 16px 40px rgba(245,158,11,0.35);
+    }
+
+    .btn-quote:hover,
+    .btn-primary:hover{
+      transform:translateY(-3px);
+      box-shadow:0 22px 50px rgba(245,158,11,0.45);
+    }
+
+    .btn-outline{
+      padding:14px 22px;
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.04);
+    }
+
+    .btn-outline:hover{
+      transform:translateY(-3px);
+      background:rgba(255,255,255,0.08);
+      border-color:rgba(255,255,255,0.22);
+    }
+
+    /* Hamburger */
+    .hamburger{
+      width:52px;
+      height:52px;
+      border:none;
+      border-radius:18px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:5px;
+      cursor:pointer;
+      transition:var(--transition);
+    }
+
+    .hamburger span{
+      width:22px;
+      height:2.5px;
+      background:#fff;
+      border-radius:99px;
+      transition:var(--transition);
+    }
+
+    .hamburger:hover{
+      background:rgba(255,255,255,0.1);
+    }
+
+    .hamburger.active span:nth-child(1){
+      transform:translateY(7px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2){
+      opacity:0;
+    }
+    .hamburger.active span:nth-child(3){
+      transform:translateY(-7px) rotate(-45deg);
+    }
+
+    /* ========== MOBILE MENU ========== */
+    .mobile-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(2,8,23,0.72);
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transition:var(--transition);
+      z-index:998;
+    }
+
+    .mobile-backdrop.active{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+    }
+
+    .mobile-menu{
+      position:fixed;
+      top:0;
+      right:0;
+      width:min(100%, 420px);
+      height:100vh;
+      background:
+        radial-gradient(circle at top right, rgba(245,158,11,0.18), transparent 30%),
+        linear-gradient(180deg, #0a1220 0%, #0e1728 100%);
+      border-left:1px solid rgba(255,255,255,0.08);
+      box-shadow:-20px 0 50px rgba(0,0,0,0.45);
+      transform:translateX(100%);
+      transition:transform .45s ease;
+      z-index:999;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+
+    .mobile-menu.active{
+      transform:translateX(0);
+    }
+
+    .mobile-menu-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:22px 22px 18px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      flex-shrink:0;
+    }
+
+    .mobile-logo-img{
+      width:145px;
+    }
+
+    .mobile-close-btn{
+      width:48px;
+      height:48px;
+      border:none;
+      border-radius:16px;
+      color:#fff;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+    }
+
+    .mobile-menu-inner{
+      flex:1;
+      overflow:auto;
+      padding:20px 22px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .mobile-link{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:16px 18px;
+      border-radius:18px;
+      color:#f8fafc;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+      font-weight:600;
+      transition:var(--transition);
+    }
+
+    .mobile-link:hover{
+      transform:translateX(4px);
+      background:rgba(255,255,255,0.08);
+    }
+
+    .mobile-link-icon{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:rgba(245,158,11,0.12);
+      color:var(--primary-light);
+      flex-shrink:0;
+    }
+
+    .mobile-menu-footer{
+      padding:22px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.02);
+    }
+
+    .mobile-btn-call,
+    .mobile-btn-quote{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      border-radius:16px;
+      font-weight:700;
+      padding:15px 18px;
+      margin-bottom:12px;
+      transition:var(--transition);
+    }
+
+    .mobile-btn-call{
+      color:#fff;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .mobile-btn-quote{
+      color:#101826;
+      background:linear-gradient(135deg,var(--primary-light),var(--primary),var(--primary-dark));
+      box-shadow:0 16px 36px rgba(245,158,11,0.28);
+    }
+
+    .mobile-menu-socials{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .mobile-social{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      color:#fff;
+      transition:var(--transition);
+    }
+
+    .mobile-social:hover{
+      transform:translateY(-3px);
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    }
+
+    /* ========== 404 HERO ========== */
+    .error-section{
+      position:relative;
+      min-height:calc(100vh - var(--topbar-h) - var(--navbar-h));
+      display:flex;
+      align-items:center;
+      padding:70px 0 90px;
+      overflow:hidden;
+    }
+
+    .error-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:50px;
+      align-items:center;
+      position:relative;
+      z-index:2;
+    }
+
+    .error-content{
+      max-width:700px;
+    }
+
+    .error-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(245,158,11,0.12);
+      border:1px solid rgba(245,158,11,0.24);
+      color:#fde68a;
+      font-weight:700;
+      margin-bottom:24px;
+      box-shadow:0 10px 30px rgba(245,158,11,0.12);
+    }
+
+    .error-code{
+      font-family:'Outfit',sans-serif;
+      font-size:clamp(4.5rem, 10vw, 9rem);
+      line-height:.95;
+      font-weight:900;
+      margin-bottom:16px;
+      letter-spacing:-3px;
+      background:linear-gradient(135deg,#fff 0%,#fcd34d 42%,#f59e0b 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow:0 18px 50px rgba(245,158,11,0.14);
+    }
+
+    .error-title{
+      font-family:'Outfit',sans-serif;
+      font-size:clamp(2rem,4vw,3.4rem);
+      line-height:1.1;
+      font-weight:800;
+      margin-bottom:18px;
+      color:#fff;
+    }
+
+    .error-title span{
+      color:var(--primary-light);
+    }
+
+    .error-desc{
+      font-size:1.08rem;
+      line-height:1.8;
+      color:var(--text);
+      max-width:620px;
+      margin-bottom:30px;
+    }
+
+    .error-actions{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:34px;
+    }
+
+    .error-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+    }
+
+    .error-meta-card{
+      min-width:190px;
+      padding:18px 20px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(14px);
+      box-shadow:var(--shadow);
+    }
+
+    .error-meta-card strong{
+      display:block;
+      font-size:1.05rem;
+      color:#fff;
+      margin-bottom:6px;
+    }
+
+    .error-meta-card span{
+      color:var(--text-dark);
+      font-size:.95rem;
+      line-height:1.6;
+    }
+
+    .error-visual{
+      position:relative;
+      min-height:520px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .error-visual-card{
+      position:relative;
+      width:min(100%, 520px);
+      border-radius:32px;
+      padding:34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)),
+        rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 30px 70px rgba(0,0,0,0.4);
+      backdrop-filter:blur(20px);
+      overflow:hidden;
+    }
+
+    .error-visual-card::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:inherit;
+      padding:1px;
+      background:linear-gradient(135deg, rgba(245,158,11,0.4), rgba(255,255,255,0.08), rgba(245,158,11,0.3));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+              mask-composite:exclude;
+      pointer-events:none;
+    }
+
+    .visual-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:26px;
+      gap:12px;
+    }
+
+    .visual-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.9rem;
+      font-weight:700;
+      color:#fde68a;
+      background:rgba(245,158,11,0.12);
+      border:1px solid rgba(245,158,11,0.2);
+    }
+
+    .visual-status{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:#dbeafe;
+      font-size:.92rem;
+    }
+
+    .visual-status-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:#22c55e;
+      box-shadow:0 0 0 6px rgba(34,197,94,0.14);
+      animation:pulse 1.8s infinite;
+    }
+
+    .error-wireframe{
+      position:relative;
+      min-height:280px;
+      border-radius:24px;
+      padding:26px;
+      background:linear-gradient(180deg, rgba(15,23,42,0.95), rgba(2,6,23,0.85));
+      border:1px solid rgba(255,255,255,0.08);
+      overflow:hidden;
+    }
+
+    .wire-grid{
+      position:absolute;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size:26px 26px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+      pointer-events:none;
+    }
+
+    .wire-404{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      font-family:'Outfit',sans-serif;
+      font-weight:900;
+      font-size:clamp(3.5rem,7vw,6rem);
+      color:#fff;
+      margin-top:34px;
+      letter-spacing:-2px;
+    }
+
+    .wire-404 span{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:110px;
+      height:110px;
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.08), 0 20px 40px rgba(0,0,0,0.25);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .wire-404 span::after{
+      content:"";
+      position:absolute;
+      inset:auto -20% -35% -20%;
+      height:65%;
+      background:radial-gradient(circle, rgba(245,158,11,0.45), transparent 60%);
+      filter:blur(12px);
+    }
+
+    .wire-404 .zero{
+      color:#fbbf24;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 20px 50px rgba(245,158,11,0.22);
+    }
+
+    .error-mini-cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:22px;
+    }
+
+    .mini-card{
+      border-radius:18px;
+      padding:16px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+      text-align:center;
+    }
+
+    .mini-card strong{
+      display:block;
+      color:#fff;
+      margin-bottom:4px;
+      font-size:1.05rem;
+    }
+
+    .mini-card span{
+      color:#94a3b8;
+      font-size:.9rem;
+    }
+
+    /* floating decorative */
+    .floating-shape{
+      position:absolute;
+      border-radius:50%;
+      pointer-events:none;
+      filter:blur(2px);
+      opacity:.85;
+      z-index:1;
+    }
+
+    .shape-1{
+      width:120px;
+      height:120px;
+      background:radial-gradient(circle, rgba(245,158,11,0.45), rgba(245,158,11,0.02));
+      top:12%;
+      left:3%;
+      animation:floatY 7s ease-in-out infinite;
+    }
+
+    .shape-2{
+      width:180px;
+      height:180px;
+      background:radial-gradient(circle, rgba(255,255,255,0.12), rgba(255,255,255,0.01));
+      bottom:10%;
+      right:6%;
+      animation:floatY 9s ease-in-out infinite reverse;
+    }
+
+    .shape-3{
+      width:90px;
+      height:90px;
+      background:radial-gradient(circle, rgba(251,191,36,0.28), rgba(251,191,36,0.02));
+      top:30%;
+      right:20%;
+      animation:floatY 6.5s ease-in-out infinite;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer{
+      position:relative;
+      border-top:1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(245,158,11,0.12), transparent 25%),
+        linear-gradient(180deg, rgba(8,15,28,0.95), rgba(6,12,22,1));
+    }
+
+    .footer-top{
+      padding:80px 0 30px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.25fr .8fr .9fr 1fr;
+      gap:32px;
+    }
+
+    .footer-logo{
+      width:170px;
+      margin-bottom:18px;
+    }
+
+    .footer-tagline{
+      color:var(--text);
+      line-height:1.85;
+      max-width:420px;
+      margin-bottom:24px;
+    }
+
+    .footer-socials{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .footer-social{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:var(--transition);
+    }
+
+    .footer-social:hover{
+      transform:translateY(-3px);
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      box-shadow:0 12px 30px rgba(245,158,11,0.35);
+    }
+
+    .footer-heading{
+      font-family:'Outfit',sans-serif;
+      font-size:1.25rem;
+      font-weight:700;
+      color:#fff;
+      margin-bottom:22px;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .footer-links a{
+      color:var(--text);
+      transition:var(--transition);
+    }
+
+    .footer-links a:hover{
+      color:#fff;
+      transform:translateX(4px);
+    }
+
+    .footer-contact-list{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .footer-contact-item{
+      display:flex;
+      gap:12px;
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .footer-contact-icon{
+      flex-shrink:0;
+      color:var(--primary-light);
+    }
+
+    .footer-contact-item a:hover{
+      color:#fff;
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding:22px 0;
+    }
+
+    .footer-bottom-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-copy{
+      color:#94a3b8;
+    }
+
+    .footer-legal{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footer-legal a{
+      color:#94a3b8;
+      transition:var(--transition);
+    }
+
+    .footer-legal a:hover{
+      color:#fff;
+    }
+
+    /* ========== BACK TO TOP ========== */
+    .back-to-top{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:52px;
+      height:52px;
+      border:none;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      color:#101826;
+      background:linear-gradient(135deg,var(--primary-light),var(--primary),var(--primary-dark));
+      box-shadow:0 18px 36px rgba(245,158,11,0.35);
+      cursor:pointer;
+      z-index:100;
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(12px);
+      transition:var(--transition);
+    }
+
+    .back-to-top.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    .back-to-top:hover{
+      transform:translateY(-3px);
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes floatY{
+      0%,100%{ transform:translateY(0); }
+      50%{ transform:translateY(-18px); }
+    }
+
+    @keyframes pulse{
+      0%,100%{ transform:scale(1); opacity:1; }
+      50%{ transform:scale(1.12); opacity:.75; }
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(26px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:all .7s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1180px){
+      .nav-links{
+        gap:2px;
+      }
+      .btn-call{
+        display:none;
+      }
+      .error-grid{
+        grid-template-columns:1fr;
+        gap:36px;
+      }
+      .error-content{
+        max-width:100%;
+        text-align:center;
+      }
+      .error-desc{
+        margin-inline:auto;
+      }
+      .error-actions,
+      .error-meta{
+        justify-content:center;
+      }
+      .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media (max-width: 991px){
+      .topbar{
+        display:none;
+      }
+
+      .nav-links,
+      .btn-quote{
+        display:none;
+      }
+
+      .hamburger{
+        display:flex;
+      }
+
+      .nav-inner{
+        min-height:78px;
+      }
+
+      .logo-img{
+        width:145px;
+      }
+
+      .error-section{
+        min-height:calc(100vh - 78px);
+        padding:50px 0 70px;
+      }
+
+      .error-visual{
+        min-height:auto;
+      }
+    }
+
+    @media (max-width: 767px){
+      .container{
+        width:min(100% - 24px, var(--container));
+      }
+
+      .error-code{
+        font-size:4.3rem;
+      }
+
+      .error-title{
+        font-size:2rem;
+      }
+
+      .error-desc{
+        font-size:1rem;
+      }
+
+      .error-actions{
+        flex-direction:column;
+      }
+
+      .error-actions .btn-primary,
+      .error-actions .btn-outline{
+        width:100%;
+      }
+
+      .error-meta{
+        flex-direction:column;
+      }
+
+      .error-meta-card{
+        width:100%;
+      }
+
+      .error-visual-card{
+        padding:22px;
+        border-radius:24px;
+      }
+
+      .wire-404{
+        gap:10px;
+      }
+
+      .wire-404 span{
+        width:82px;
+        height:82px;
+        border-radius:22px;
+        font-size:2.6rem;
+      }
+
+      .error-mini-cards{
+        grid-template-columns:1fr;
+      }
+
+      .footer-top{
+        padding:65px 0 24px;
+      }
+
+      .footer-grid{
+        grid-template-columns:1fr;
+        gap:28px;
+      }
+
+      .footer-bottom-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .footer-legal{
+        gap:14px;
+      }
+
+      .back-to-top{
+        right:16px;
+        bottom:16px;
+        width:48px;
+        height:48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== TOP BAR ========== -->
+  <div class="topbar" id="topbar">
+    <div class="topbar-inner container">
+      <div class="topbar-left">
+        <span class="topbar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.45 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.56A16 16 0 0 0 15.44 16.1l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +1 (800) 555-0180
+        </span>
+        <span class="topbar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@stackly.com
+        </span>
+        <span class="topbar-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Mon–Sat: 8:00 AM – 6:00 PM
+        </span>
+      </div>
+      <div class="topbar-right">
+        <a href="404.html" class="topbar-social" aria-label="Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="404.html" class="topbar-social" aria-label="Twitter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+        <a href="404.html" class="topbar-social" aria-label="LinkedIn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="404.html" class="topbar-social" aria-label="YouTube">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 1.96C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="white"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner container">
+      <a href="index.html" class="nav-logo" aria-label="Stackly Home">
+        <img src="Assets/logo.webp" alt="Stackly Logo" class="logo-img" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="tel:+18005550180" class="btn-call">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.45 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.56A16 16 0 0 0 15.44 16.1l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+        <a href="login.html" class="btn-quote">Get a Quote</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="mobile-backdrop" id="mobile-backdrop"></div>
+
+        <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+          <div class="mobile-menu-header">
+            <a href="index.html" class="mobile-menu-logo" aria-label="Stackly Home">
+              <img src="Assets/logo.webp" alt="Stackly" class="mobile-logo-img" />
+            </a>
+            <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close menu">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+
+          <div class="mobile-menu-inner">
+            <a href="index.html" class="mobile-link">
+              <span class="mobile-link-icon">🏠</span> Home
+            </a>
+            <a href="about.html" class="mobile-link">
+              <span class="mobile-link-icon">🏢</span> About
+            </a>
+            <a href="services.html" class="mobile-link">
+              <span class="mobile-link-icon">⚡</span> Services
+            </a>
+            <a href="projects.html" class="mobile-link">
+              <span class="mobile-link-icon">🏗️</span> Projects
+            </a>
+            <a href="reviews.html" class="mobile-link">
+              <span class="mobile-link-icon">⭐</span> Reviews
+            </a>
+            <a href="contact.html" class="mobile-link">
+              <span class="mobile-link-icon">📩</span> Contact
+            </a>
+          </div>
+
+          <div class="mobile-menu-footer">
+            <a href="tel:+18005550180" class="mobile-btn-call">📞 Call Now</a>
+            <a href="login.html" class="mobile-btn-quote">Get a Quote</a>
+            <div class="mobile-menu-socials">
+              <a href="404.html" class="mobile-social" aria-label="Facebook">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="404.html" class="mobile-social" aria-label="Twitter">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+              </a>
+              <a href="404.html" class="mobile-social" aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="404.html" class="mobile-social" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== 404 SECTION ========== -->
+  <main class="error-section">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+
+    <div class="container">
+      <div class="error-grid">
+        <div class="error-content reveal">
+          <div class="error-badge">⚡ Page Not Found • Stackly Support</div>
+          <div class="error-code">404</div>
+          <h1 class="error-title">
+            Looks like this page lost <span>power connection</span>.
+          </h1>
+          <p class="error-desc">
+            The page you’re looking for may have been moved, removed, or the URL might be incorrect. Don’t worry — you can head back to the homepage, explore our services, or contact the Stackly team for help.
+          </p>
+
+         <div class="error-actions">
+  <a href="index.html" class="btn-primary">Back to Home</a>
+  <a href="javascript:history.back()" class="btn-outline">Back</a>
+</div>
+
+          <div class="error-meta">
+            <div class="error-meta-card">
+              <strong>Need urgent help?</strong>
+              <span>Call our emergency support line for immediate electrical assistance.</span>
+            </div>
+            <div class="error-meta-card">
+              <strong>Looking for services?</strong>
+              <span>Browse Stackly’s premium electrical, industrial, and automation solutions.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="error-visual reveal">
+          <div class="error-visual-card">
+            <div class="visual-top">
+              <div class="visual-pill">⚡ Stackly System Alert</div>
+              <div class="visual-status">
+                <span class="visual-status-dot"></span>
+                Service Active
+              </div>
+            </div>
+
+            <div class="error-wireframe">
+              <div class="wire-grid"></div>
+              <div class="wire-404">
+                <span>4</span>
+                <span class="zero">0</span>
+                <span>4</span>
+              </div>
+
+              <div class="error-mini-cards">
+                <div class="mini-card">
+                  <strong>20+</strong>
+                  <span>Years Experience</span>
+                </div>
+                <div class="mini-card">
+                  <strong>24/7</strong>
+                  <span>Emergency Support</span>
+                </div>
+                <div class="mini-card">
+                  <strong>1500+</strong>
+                  <span>Projects Delivered</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo-link" aria-label="Stackly Home">
+              <img src="Assets/logo.webp" alt="Stackly Logo" class="footer-logo" />
+            </a>
+            <p class="footer-tagline">
+              Powering businesses and homes with cutting-edge electrical engineering since 2004. Safety, precision, and excellence in every connection.
+            </p>
+            <div class="footer-socials">
+              <a href="#" class="footer-social" aria-label="Facebook">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" class="footer-social" aria-label="Twitter">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+              </a>
+              <a href="#" class="footer-social" aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="#" class="footer-social" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="reviews.html">Reviews</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Our Services</h4>
+            <ul class="footer-links">
+              <li><a href="services.html">Wiring & Rewiring</a></li>
+              <li><a href="services.html">Panel Installation</a></li>
+              <li><a href="services.html">PCB & Circuit Assembly</a></li>
+              <li><a href="services.html">Maintenance & Repair</a></li>
+              <li><a href="services.html">Smart Automation</a></li>
+              <li><a href="services.html">Inspection & Testing</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-heading">Contact Info</h4>
+            <div class="footer-contact-list">
+              <div class="footer-contact-item">
+                <span class="footer-contact-icon">📍</span>
+                <span>4820 Electric Ave, Suite 300<br />Dallas, TX 75201</span>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-icon">📞</span>
+                <a href="tel:+18005550180">+1 (800) 555-0180</a>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-icon">✉️</span>
+                <a href="mailto:info@stackly.com">info@stackly.com</a>
+              </div>
+              <div class="footer-contact-item">
+                <span class="footer-contact-icon">🚨</span>
+                <span>Emergency: <a href="tel:+18005550911">+1 (800) 555-0911</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">© 2026 <strong>Stackly Electrical Services</strong>. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script>
+    // Mobile Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileBackdrop = document.getElementById('mobile-backdrop');
+    const mobileCloseBtn = document.getElementById('mobile-close-btn');
+
+    function openMenu() {
+      mobileMenu.classList.add('active');
+      mobileBackdrop.classList.add('active');
+      hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('active');
+      mobileBackdrop.classList.remove('active');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }
+
+    if (hamburger) hamburger.addEventListener('click', openMenu);
+    if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMenu);
+    if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMenu);
+
+    // Back to top
+    const backToTop = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 250) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Simple reveal animation
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
