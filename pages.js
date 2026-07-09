@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     mobileMenu.classList.add('open');
     mobileBackdrop.style.display = 'block';
     document.body.style.overflow = 'hidden';
-    setTimeout(() => mobileBackdrop.classList.add('visible'), 10);
+    setTimeout(() => mobileBackdrop.classList.add('show'), 10);
     // Stagger reveal
     let delay = 80;
     mobileLinks.forEach(link => {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     hamburger.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
     mobileMenu.classList.remove('open');
-    mobileBackdrop.classList.remove('visible');
+    mobileBackdrop.classList.remove('show');
     document.body.style.overflow = '';
     mobileLinks.forEach(link => {
       link.classList.remove('link-revealed');
@@ -60,7 +60,15 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => { mobileBackdrop.style.display = ''; }, 420);
   }
 
-  if (hamburger) hamburger.addEventListener('click', openMobileMenu);
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      if (hamburger.classList.contains('open')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+  }
   if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMobileMenu);
   if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
 

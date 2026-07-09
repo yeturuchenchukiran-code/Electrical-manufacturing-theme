@@ -308,22 +308,30 @@
     const mobileCloseBtn = document.getElementById("mobile-close-btn");
 
     function openMobileMenu() {
-      mobileMenu.classList.add("active");
-      mobileBackdrop.classList.add("active");
-      hamburger.classList.add("active");
+      mobileMenu.classList.add("open");
+      mobileBackdrop.classList.add("show");
+      hamburger.classList.add("open");
       hamburger.setAttribute("aria-expanded", "true");
       document.body.style.overflow = "hidden";
     }
 
     function closeMobileMenu() {
-      mobileMenu.classList.remove("active");
-      mobileBackdrop.classList.remove("active");
-      hamburger.classList.remove("active");
+      mobileMenu.classList.remove("open");
+      mobileBackdrop.classList.remove("show");
+      hamburger.classList.remove("open");
       hamburger.setAttribute("aria-expanded", "false");
       document.body.style.overflow = "";
     }
 
-    if (hamburger) hamburger.addEventListener("click", openMobileMenu);
+    if (hamburger) {
+      hamburger.addEventListener("click", function() {
+        if (hamburger.classList.contains("open")) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      });
+    }
     if (mobileCloseBtn) mobileCloseBtn.addEventListener("click", closeMobileMenu);
     if (mobileBackdrop) mobileBackdrop.addEventListener("click", closeMobileMenu);
   </script>

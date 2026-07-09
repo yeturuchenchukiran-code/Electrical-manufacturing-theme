@@ -87,6 +87,8 @@ const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
 (function setupMobileMenu() {
   const hamburger = $('#hamburger');
   const mobileMenu = $('#mobile-menu');
+  const mobileBackdrop = $('#mobile-backdrop');
+  const mobileCloseBtn = $('#mobile-close-btn');
   const mobileLinks = $$('.mobile-link, .mobile-btn-call, .mobile-btn-quote');
 
   if (!hamburger || !mobileMenu) return;
@@ -96,12 +98,29 @@ const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
     mobileMenu.classList.toggle('open', open);
     hamburger.setAttribute('aria-expanded', open);
     document.body.style.overflow = open ? 'hidden' : '';
+    
+    if (mobileBackdrop) {
+      if (open) {
+        mobileBackdrop.style.display = 'block';
+        setTimeout(() => mobileBackdrop.classList.add('show'), 10);
+      } else {
+        mobileBackdrop.classList.remove('show');
+        setTimeout(() => { mobileBackdrop.style.display = ''; }, 420);
+      }
+    }
   };
 
   hamburger.addEventListener('click', () => {
     const isOpen = mobileMenu.classList.contains('open');
     toggle(!isOpen);
   });
+
+  if (mobileCloseBtn) {
+    mobileCloseBtn.addEventListener('click', () => toggle(false));
+  }
+  if (mobileBackdrop) {
+    mobileBackdrop.addEventListener('click', () => toggle(false));
+  }
 
   // Close on link click
   mobileLinks.forEach(link => {

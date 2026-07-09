@@ -337,5 +337,38 @@
 
   <button class="back-to-top" id="back-to-top" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
   <script src="pages.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".nav-links");
+  const body = document.body;
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", function () {
+      menuToggle.classList.toggle("active");
+      navMenu.classList.toggle("active");
+      body.classList.toggle("menu-open");
+    });
+
+    // Close menu when clicking any nav link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", function () {
+        menuToggle.classList.remove("active");
+        navMenu.classList.remove("active");
+        body.classList.remove("menu-open");
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        menuToggle.classList.remove("active");
+        navMenu.classList.remove("active");
+        body.classList.remove("menu-open");
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>

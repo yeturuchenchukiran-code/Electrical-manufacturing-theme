@@ -1437,7 +1437,15 @@
       document.body.classList.remove('menu-open');
     }
 
-    if (hamburger) hamburger.addEventListener('click', openMenu);
+    if (hamburger) {
+      hamburger.addEventListener('click', function() {
+        if (hamburger.classList.contains('active')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
     if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMenu);
     if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMenu);
 

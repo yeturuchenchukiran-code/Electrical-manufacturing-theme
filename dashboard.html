@@ -522,6 +522,35 @@
 body.menu-open{
   overflow: hidden;
 }
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progressFill {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--bar-width);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
    
     /* DASHBOARD */
     .dashboard-page{
@@ -560,6 +589,8 @@ body.menu-open{
       top:110px;
       height:fit-content;
       overflow:hidden;
+      animation:fadeSlideUp 0.7s cubic-bezier(0.22,1,0.36,1) both;
+      will-change:transform, opacity;
     }
 
     .dashboard-sidebar::before{
@@ -712,6 +743,7 @@ body.menu-open{
       display:flex;
       flex-direction:column;
       gap:24px;
+      scroll-margin-top:130px;
     }
 
     .dashboard-topbar{
@@ -782,6 +814,8 @@ body.menu-open{
       gap:24px;
       overflow:hidden;
       position:relative;
+      animation:fadeSlideUp 0.75s cubic-bezier(0.22,1,0.36,1) both;
+      will-change:transform, opacity;
     }
 
     .welcome-banner::after{
@@ -819,6 +853,8 @@ body.menu-open{
       border:1px solid rgba(255,255,255,0.08);
       border-radius:18px;
       padding:18px;
+      animation:fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) both;
+      will-change:transform, opacity;
     }
 
     .mini-card span{
@@ -847,7 +883,13 @@ body.menu-open{
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
+      animation:fadeSlideUp 0.72s cubic-bezier(0.22,1,0.36,1) both;
+      will-change:transform, opacity;
     }
+
+    .stat-card:nth-child(2){ animation-delay:0.08s; }
+    .stat-card:nth-child(3){ animation-delay:0.16s; }
+    .stat-card:nth-child(4){ animation-delay:0.24s; }
 
     .stat-card::before{
       content:"";
@@ -912,6 +954,9 @@ body.menu-open{
       border-radius:28px;
       box-shadow:var(--shadow);
       padding:24px;
+      animation:fadeSlideUp 0.78s cubic-bezier(0.22,1,0.36,1) both;
+      will-change:transform, opacity;
+      scroll-margin-top:130px;
     }
 
     .panel-header{
@@ -959,6 +1004,8 @@ body.menu-open{
       gap:18px;
       flex-wrap:wrap;
       transition:var(--transition);
+      animation:fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) both;
+      will-change:transform, opacity;
     }
 
     .project-item:hover,
@@ -1076,6 +1123,8 @@ body.menu-open{
       height:100%;
       border-radius:999px;
       background:linear-gradient(90deg,var(--primary),#ffd36b);
+      width:0;
+      animation:progressFill 1.2s cubic-bezier(0.22,1,0.36,1) forwards;
     }
 
     .quick-actions{
@@ -1090,7 +1139,13 @@ body.menu-open{
       border-radius:20px;
       padding:18px;
       transition:var(--transition);
+      animation:fadeSlideUp 0.8s cubic-bezier(0.22,1,0.36,1) both;
+      will-change:transform, opacity;
     }
+
+    .quick-card:nth-child(2){ animation-delay:0.08s; }
+    .quick-card:nth-child(3){ animation-delay:0.16s; }
+    .quick-card:nth-child(4){ animation-delay:0.24s; }
 
     .quick-card:hover{
       transform:translateY(-2px);
@@ -1588,8 +1643,8 @@ body.menu-open{
 
     <!-- Desktop CTA -->
     <div class="nav-cta">
-      <a href="tel:+18005550180" class="btn-call">Call Now</a>
-      <a href="contact.html" class="btn-quote">Get a Quote</a>
+      <a href="404.html" class="btn-call">Call Now</a>
+      <a href="login.html" class="btn-quote">Get a Quote</a>
     </div>
 
     <!-- Hamburger -->
@@ -1647,35 +1702,41 @@ body.menu-open{
           </div>
 
           <div class="sidebar-menu">
-            <a href="#" class="sidebar-link active">
-              <span class="sidebar-icon">🏠</span>
-              Dashboard Overview
-            </a>
-            <a href="#" class="sidebar-link">
-              <span class="sidebar-icon">📁</span>
-              My Projects
-            </a>
-            <a href="#" class="sidebar-link">
-              <span class="sidebar-icon">🛠️</span>
-              Service Requests
-            </a>
-            <a href="#" class="sidebar-link">
-              <span class="sidebar-icon">🧾</span>
-              Invoices
-            </a>
-            <a href="#" class="sidebar-link">
-              <span class="sidebar-icon">📅</span>
-              Schedule Visit
-            </a>
-            <a href="#" class="sidebar-link">
-              <span class="sidebar-icon">👤</span>
-              Account Settings
-            </a>
-            <a href="#" class="sidebar-link">
-              <span class="sidebar-icon">💬</span>
-              Support Center
-            </a>
-          </div>
+  <a href="#dashboard-main" class="sidebar-link active">
+    <span class="sidebar-icon">🏠</span>
+    Dashboard Overview
+  </a>
+
+  <a href="#projects-section" class="sidebar-link">
+    <span class="sidebar-icon">📁</span>
+    My Projects
+  </a>
+
+  <a href="#services-section" class="sidebar-link">
+    <span class="sidebar-icon">🛠️</span>
+    Service Requests
+  </a>
+
+  <a href="#invoices-section" class="sidebar-link">
+    <span class="sidebar-icon">🧾</span>
+    Invoices
+  </a>
+
+  <a href="#schedule-section" class="sidebar-link">
+    <span class="sidebar-icon">📅</span>
+    Schedule Visit
+  </a>
+
+  <a href="#account-section" class="sidebar-link">
+    <span class="sidebar-icon">👤</span>
+    Account Settings
+  </a>
+
+  <a href="#support-section" class="sidebar-link">
+    <span class="sidebar-icon">💬</span>
+    Support Center
+  </a>
+</div>
 
           <div class="sidebar-bottom">
             <div class="sidebar-help">
@@ -1689,7 +1750,7 @@ body.menu-open{
         </aside>
 
         <!-- MAIN -->
-        <section class="dashboard-main">
+        <section class="dashboard-main" id="dashboard-main">
 
           <div class="dashboard-topbar">
             <div class="dashboard-title">
@@ -1779,7 +1840,7 @@ body.menu-open{
           <div class="dashboard-grid">
 
             <!-- RECENT PROJECTS -->
-            <div class="panel">
+            <div class="panel" id="projects-section">
               <div class="panel-header">
                 <div>
                   <h3>Recent Projects</h3>
@@ -1801,7 +1862,7 @@ body.menu-open{
                           <span>78%</span>
                         </div>
                         <div class="progress-bar">
-                          <div class="progress-fill" style="width:78%;"></div>
+                          <div class="progress-fill" style="--bar-width:78%;"></div>
                         </div>
                       </div>
                     </div>
@@ -1824,7 +1885,7 @@ body.menu-open{
                           <span>52%</span>
                         </div>
                         <div class="progress-bar">
-                          <div class="progress-fill" style="width:52%;"></div>
+                          <div class="progress-fill" style="--bar-width:52%;"></div>
                         </div>
                       </div>
                     </div>
@@ -1847,7 +1908,7 @@ body.menu-open{
                           <span>100%</span>
                         </div>
                         <div class="progress-bar">
-                          <div class="progress-fill" style="width:100%;"></div>
+                          <div class="progress-fill" style="--bar-width:100%;"></div>
                         </div>
                       </div>
                     </div>
@@ -1861,7 +1922,7 @@ body.menu-open{
             </div>
 
             <!-- QUICK ACTIONS -->
-            <div class="panel">
+            <div class="panel" id="schedule-section">
               <div class="panel-header">
                 <div>
                   <h3>Quick Actions</h3>
@@ -1901,7 +1962,7 @@ body.menu-open{
           <div class="dashboard-bottom">
 
             <!-- SERVICE REQUESTS -->
-            <div class="panel">
+            <div class="panel" id="services-section">
               <div class="panel-header">
                 <div>
                   <h3>Service Requests</h3>
@@ -1956,7 +2017,7 @@ body.menu-open{
             </div>
 
             <!-- INVOICES -->
-            <div class="panel">
+            <div class="panel" id="invoices-section">
               <div class="panel-header">
                 <div>
                   <h3>Invoices & Payments</h3>
@@ -2010,6 +2071,56 @@ body.menu-open{
               </div>
             </div>
 
+          </div>
+
+          <div class="dashboard-bottom" style="margin-top:22px;">
+            <div class="panel" id="account-section">
+              <div class="panel-header">
+                <div>
+                  <h3>Account Settings</h3>
+                  <p>Keep your contact details, billing preferences, and support access up to date.</p>
+                </div>
+              </div>
+              <div class="project-list">
+                <div class="project-item">
+                  <div class="project-left">
+                    <div class="project-icon">🔐</div>
+                    <div class="project-content">
+                      <h4>Security & Profile</h4>
+                      <p>Update your email, phone number, password, and communication preferences.</p>
+                    </div>
+                  </div>
+                  <div class="project-meta">
+                    <span class="status completed">Updated</span>
+                    <span class="meta-text">Last change: 2 days ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel" id="support-section">
+              <div class="panel-header">
+                <div>
+                  <h3>Support Center</h3>
+                  <p>Access rapid help for urgent electrical concerns and service coordination.</p>
+                </div>
+              </div>
+              <div class="request-list">
+                <div class="request-item">
+                  <div class="request-left">
+                    <div class="request-icon">📞</div>
+                    <div class="request-content">
+                      <h4>Priority Support Line</h4>
+                      <p>Speak with your dedicated service coordinator for urgent technical support.</p>
+                    </div>
+                  </div>
+                  <div class="request-meta">
+                    <span class="status pending">24/7</span>
+                    <span class="meta-text">+1 (800) 555-0180</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -2204,6 +2315,61 @@ body.menu-open{
       closeMobileMenu();
     }
   });
+</script>
+
+<script>
+  const sidebarLinks = document.querySelectorAll(".sidebar-link");
+  const sections = document.querySelectorAll(
+    "#dashboard-main, #projects-section, #services-section, #invoices-section, #schedule-section, #account-section, #support-section"
+  );
+
+  function setActiveLink(activeHref) {
+    sidebarLinks.forEach(link => {
+      const isActive = link.getAttribute("href") === activeHref;
+      link.classList.toggle("active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  sidebarLinks.forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
+
+      setActiveLink(targetId);
+
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY + 170;
+    let currentSection = "#dashboard-main";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        currentSection = "#" + section.getAttribute("id");
+      }
+    });
+
+    setActiveLink(currentSection);
+  });
+
+  
 </script>
 </body>
 </html>
