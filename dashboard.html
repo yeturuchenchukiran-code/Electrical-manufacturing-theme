@@ -2110,6 +2110,41 @@ body.menu-open{
 
   
 <script>
+  /* =========================
+     DASHBOARD USERNAME
+  ========================= */
+  const storedUsername = localStorage.getItem("dashboardUsername");
+
+  if (!storedUsername || storedUsername.trim() === "") {
+    window.location.href = "login.html";
+  } else {
+    const capitalizedName =
+      storedUsername.charAt(0).toUpperCase() + storedUsername.slice(1);
+
+    const dashboardUsername = document.getElementById("dashboardUsername");
+    const sidebarUsername = document.getElementById("sidebarUsername");
+    const sidebarAvatar = document.getElementById("sidebarAvatar");
+
+    if (dashboardUsername) dashboardUsername.textContent = capitalizedName;
+    if (sidebarUsername) sidebarUsername.textContent = capitalizedName;
+    if (sidebarAvatar) sidebarAvatar.textContent = capitalizedName.charAt(0);
+  }
+
+  /* =========================
+     LOGOUT
+  ========================= */
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
+      localStorage.removeItem("dashboardUsername");
+      window.location.href = "login.html";
+    });
+  }
+
+  /* =========================
+     MOBILE MENU
+  ========================= */
   const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.getElementById("mobileMenu");
   const mobileBackdrop = document.getElementById("mobileBackdrop");
@@ -2117,6 +2152,8 @@ body.menu-open{
   const mobileLinks = document.querySelectorAll(".mobile-link");
 
   function openMobileMenu() {
+    if (!hamburger || !mobileMenu || !mobileBackdrop) return;
+
     hamburger.classList.add("active");
     mobileMenu.classList.add("active");
     mobileBackdrop.classList.add("active");
@@ -2125,6 +2162,8 @@ body.menu-open{
   }
 
   function closeMobileMenu() {
+    if (!hamburger || !mobileMenu || !mobileBackdrop) return;
+
     hamburger.classList.remove("active");
     mobileMenu.classList.remove("active");
     mobileBackdrop.classList.remove("active");
@@ -2154,7 +2193,7 @@ body.menu-open{
     link.addEventListener("click", closeMobileMenu);
   });
 
-  document.addEventListener("keydown", function(e){
+  document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
       closeMobileMenu();
     }
