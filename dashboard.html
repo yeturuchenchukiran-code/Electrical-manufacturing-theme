@@ -1762,8 +1762,8 @@ body.menu-open{
             </div>
 
             <div class="dashboard-actions">
-              <button class="action-btn secondary">📞 Call Support</button>
-              <button class="action-btn primary">+ New Service Request</button>
+              <button class="action-btn secondary" data-sidebar-target="#support-section">📞 Call Support</button>
+              <button class="action-btn primary" data-sidebar-target="#services-section">+ New Service Request</button>
             </div>
           </div>
 
@@ -1846,7 +1846,7 @@ body.menu-open{
                   <h3>Recent Projects</h3>
                   <p>Track current electrical installation and maintenance work.</p>
                 </div>
-                <a href="#" class="panel-link">View All</a>
+                <a href="#" class="panel-link" data-sidebar-target="#projects-section">View All</a>
               </div>
 
               <div class="project-list">
@@ -1931,25 +1931,25 @@ body.menu-open{
               </div>
 
               <div class="quick-actions">
-                <a href="#" class="quick-card">
+                <a href="#" class="quick-card" data-sidebar-target="#services-section">
                   <div class="quick-icon">🛠️</div>
                   <h4>Raise Service Request</h4>
                   <p>Submit a new repair, maintenance, or emergency support request.</p>
                 </a>
 
-                <a href="#" class="quick-card">
+                <a href="#" class="quick-card" data-sidebar-target="#invoices-section">
                   <div class="quick-icon">🧾</div>
                   <h4>View Invoices</h4>
                   <p>Check due invoices, payment history, and downloadable bills.</p>
                 </a>
 
-                <a href="#" class="quick-card">
+                <a href="#" class="quick-card" data-sidebar-target="#schedule-section">
                   <div class="quick-icon">📅</div>
                   <h4>Book Site Visit</h4>
                   <p>Schedule a consultation, inspection, or project planning visit.</p>
                 </a>
 
-                <a href="#" class="quick-card">
+                <a href="#" class="quick-card" data-sidebar-target="#support-section">
                   <div class="quick-icon">📞</div>
                   <h4>Talk to Support</h4>
                   <p>Connect directly with your Stackly service manager for assistance.</p>
@@ -1968,7 +1968,7 @@ body.menu-open{
                   <h3>Service Requests</h3>
                   <p>Current tickets and maintenance requests under review.</p>
                 </div>
-                <a href="#" class="panel-link">Manage</a>
+                <a href="#" class="panel-link" data-sidebar-target="#services-section">Manage</a>
               </div>
 
               <div class="request-list">
@@ -2023,7 +2023,7 @@ body.menu-open{
                   <h3>Invoices & Payments</h3>
                   <p>Pending bills and recent payment activity.</p>
                 </div>
-                <a href="#" class="panel-link">Billing History</a>
+                <a href="#" class="panel-link" data-sidebar-target="#invoices-section">Billing History</a>
               </div>
 
               <div class="invoice-list">
@@ -2037,7 +2037,7 @@ body.menu-open{
                   </div>
                   <div class="invoice-meta">
                     <span class="payment-amount">$2,450</span>
-                    <a href="#" class="pay-btn">Pay Now</a>
+                    <a href="#" class="pay-btn" data-sidebar-target="#invoices-section">Pay Now</a>
                   </div>
                 </div>
 
@@ -2319,6 +2319,7 @@ body.menu-open{
 
 <script>
   const sidebarLinks = document.querySelectorAll(".sidebar-link");
+  const sectionButtons = document.querySelectorAll("[data-sidebar-target]");
   const sections = document.querySelectorAll(
     "#dashboard-main, #projects-section, #services-section, #invoices-section, #schedule-section, #account-section, #support-section"
   );
@@ -2334,6 +2335,25 @@ body.menu-open{
       }
     });
   }
+
+  sectionButtons.forEach(button => {
+    button.addEventListener("click", function(e) {
+      e.preventDefault();
+      const targetId = this.dataset.sidebarTarget;
+      if (!targetId) return;
+
+      const targetLink = document.querySelector(`.sidebar-link[href="${targetId}"]`);
+      const targetSection = document.querySelector(targetId);
+
+      if (targetLink) setActiveLink(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
 
   sidebarLinks.forEach(link => {
     link.addEventListener("click", function(e) {
@@ -2369,7 +2389,12 @@ body.menu-open{
     setActiveLink(currentSection);
   });
 
+
+
+
   
 </script>
+
+
 </body>
 </html>
